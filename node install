@@ -1,0 +1,8 @@
+安装node
+	1.官网下载压缩包
+		https://nodejs.org/zh-cn/download/
+		版本较为稳定的一个
+	2.解压
+		tar xf node-v10.16.0-linux-x64.tar.xz
+	3.建立软链接
+		ln -s 解压所在的位置(用绝对路径较好) usr/local/bin

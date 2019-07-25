@@ -1,0 +1,31 @@
+安装hexo
+	sudo npm install -g cnpm -registry=https://registry.npm.taobao.org
+	-g全局安装，使用淘宝镜像源cnpm
+	sudo npm install -g cnpm -registry
+	
+	
+	直接安装，不花里胡哨
+		npm install hexo-cli -g
+	安装要自己配置软链接啊，亲～
+		sudo ln -s ~/node/bin/cnpm /usr/local/bin
+		sudo ln -s ~/node/bin/hexo /usr/local/bin
+
+
+	命令
+		记得sudo
+		hexo init blog	创建
+		hexo n	new一篇文章
+		换主题
+			hexo clean	清理缓存
+			hexo g	生成文件
+		hexo s 运行本地服务器
+		hexo d 上传到服务器
+	推到服务器上
+		安装cnpm install --save hexo-deployer-git
+		再配置_config.yml
+			deploy:
+			  type: git
+			  repo: git@github.com:congyaqwq/congyaqwq.github.io.git
+			  branch: master
+		hexo deployment
+

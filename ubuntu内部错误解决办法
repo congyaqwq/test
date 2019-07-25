@@ -1,0 +1,15 @@
+ ubuntu内部错误的解决办法
+
+在ubuntu使用过程中，出现下面错误：
+
+对不起，Ubuntu 16.04出现了内部错误。
+
+这并不是ubuntu16.04特有的问题，好像每一个ubuntu版本都有类似的问题。
+
+解决的办法有2个。
+
+1、sudo apt-get remove apport
+
+2、sudo rm -rf /var/crash，据说这是官方给出的解决方案。
+
+apport就是ubuntu上的"crash report"服务，就是当有程序崩溃时弹出的那个发送error report的程序：

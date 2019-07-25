@@ -1,0 +1,10 @@
+安装flakpak：
+添加软件源：
+sudo add-apt-repository ppa:alexlarsson/flatpak
+sudo apt-get update
+安装框架：
+sudo apt-get install flatpak
+//如果出现依赖问题，我推荐使用 sudo aptitude install flatpak，根据提示处理
+下载安装包，然后依次安装
+flatpak install *wine*
+flatpak install *tim*

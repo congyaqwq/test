@@ -1,0 +1,52 @@
+安装ipython(使用管理员权限)
+
+
+
+wget https://pypi.python.org/packages/75/03/bb1ce0cf9f8a86f52b34090708e1806bc11e2d29b193e7d6fe0afe9a61e5/ipython-6.0.0.tar.gz#md5=4169cfe24253c342d7a0b966f5c76281 -P /usr/local/src
+
+如果报错末尾添加“---报错提示”
+
+ 
+
+tar -zxvf ipython-6.0.0.tar.gz
+
+ 
+
+cd ipython-6.0.0   
+
+ 
+
+python3 setup.py install
+
+在命令行中输入 ipython3,会报错，提示需安装如下模块：
+
+pip3 install traitlets pygments pexpect pickleshare prompt_toolkit simplegeneric
+
+之后，基于python3中的ipython就安装好了（注意pip3要创建软连接）
+sudo pip3 install -i http://pypi.douban.com/simple/ jupyter
+sudo pip3 install -i http://pypi.douban.com/simple/ notebook
+
+赋权限：cd /run/user/1000/
+	chmod 777 jupyter
+启动：ipython notebook
+
+
+使用豆瓣镜像
+
+
+虽然用easy_install和pip来安装第三方库很方便
+它们的原理其实就是从Python的官方源pypi.python.org/pypi 下载到本地，然后解包安装。
+不过因为某些原因，访问官方的pypi不稳定，很慢甚至有些还时不时的访问不了。
+
+跟ubuntu的apt和centos的yum有各个镜像源一样，pypi也有。
+
+在国内的强烈推荐豆瓣的源
+http://pypi.douban.com/simple/
+注意后面要有/simple目录。
+
+使用镜像源很简单，用-i指定就行了：
+sudo easy_install -i http://pypi.douban.com/simple/ saltTesting
+sudo pip install -i http://pypi.douban.com/simple/ saltTesting
+
+
+

@@ -1,0 +1,68 @@
+Ubuntu 16.04 python和OpenCV安装：最进在做深度学习和计算机视觉的有关内容，因此要在python中用到opencv。我的电脑装的是Ubuntu 16.04，python 2.7和OpenCV 3.2.0 。按照官网的安装方法出了个问题，找不到 cv2 module。因此把自己安装成功的过程和大家分享一下：
+
+1. 首先更新相关的package：
+1
+	
+sudo apt-get update
+1
+	
+sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+编译OpenCV需要用到下面的一些package： GCCCMakeGTK+2.x or higherpkg-configffmpeg or libav development packages: libavcodec-dev, libavformat-dev, libswscale-dev
+2. 下载python：
+
+Ubuntu默认带了各个版本的python，如果没有的话，可以很方便的安装：
+
+ 
+1
+	
+sudo apt-get install python2.7-dev #2.7可以改为3.2或者3.5
+3. 下载OpenCV的源码
+
+OpenCV官网上有linux版本的源码包可以下载，不过最好是从git上下载，这样可以保证下载得到的是最新的代码：
+1
+2
+	
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.2.0.zip
+unzip opencv.zip
+4. 编译安装
+
+进入到OpenCV的文件夹中，创建一个build目录，进行编译：
+
+ 
+1
+2
+3
+	
+cd opencv-3.2.0
+mkdir build
+
+
+
+----------------------------------------------------
+安装OpenCv 3.1的过程中要下载ippicv_linux_20151201，由于网络的原因，这个文件经常会下载失败。
+解决的办法是手动下载：ippicv_linux_20151201.tgz
+
+下载完后替换opencv-3.1.0/3rdparty/ippicv/downloads/linux-*目录下的同名文件，重新cmake。
+--------------------- ---------------
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
+1
+	
+make -j4
+1
+	
+sudo make install
+5. 测试是否安装成功
+
+ 
+1
+	
+python
+1
+	
+>>>import cv2
+1
+	
+>>>cv2.__version__
+

@@ -1,0 +1,19 @@
+vim 使用：
+cc:剪切
+c2c:剪切两行
+/xxx:查找　　　n:下一个  shift+n:上一个
+ctrl+n:补全
+ctrl+w:切换窗口
+v:光标模式　c:剪切
+
+
+vim插件安装
+先安装vimplug管理插件
+在终端下使用vim进行编辑时，默认情况下，编辑的界面上是没有显示行号、语法高亮度显示、智能缩进等功能的。为了更好的在vim下进行工作，需要手动设置一个配置文件：.vimrc。
+然后粘贴下列选项设置，以后需要更多的配置，直接在里面加内容就可以了：
+set nu “显示行号
+syntax on “自动语法高亮
+set shiftwidth=4 “默认缩进4个空格
+set softtabstop=4 “使用tab时 tab空格数
+set tabstop=4 “tab 代表4个空格
+set expandtab “使用空格替换tab 

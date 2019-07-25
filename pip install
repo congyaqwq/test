@@ -1,0 +1,7 @@
+安装pip3：<pre>sudo apt-get install python3-pip</pre>
+安装django：pip3 install django
+查看django版本：python -m django --version
+解压包：tar -xvzf pycharm-professional-2018.2.4.tar.gz
+运行pycharm：sh pycharm.sh &
+./pycharm.sh
+

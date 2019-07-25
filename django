@@ -1,0 +1,2 @@
+django:requirement.txt
+可以安装需求环境，安装方式：pip install -r requirement.txt

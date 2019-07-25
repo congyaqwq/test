@@ -1,0 +1,27 @@
+网易云音乐无法通过桌面图标进入的解决方法
+可以在命令行模式下
+ vim netease-cloud-music.desktop
+  533  sudo netease-cloud-music
+打开
+
+快捷方式启动：
+将当前用户加入 sudoer
+
+sudo visudo -f /etc/sudoers.d/username
+
+username 要替换为你系统用户名
+
+并输入：
+
+username ALL=(ALL:ALL) NOPASSWD:ALL
+
+如果不习惯使用nano编辑器可以 更换为vim
+使用 sudo 运行网易云音乐
+
+编辑启动文件：
+
+sudo gedit /usr/share/applications/netease-cloud-music.desktop
+
+在第11行前加上 sudo
+
+Exec=sudo netease-cloud-music %U

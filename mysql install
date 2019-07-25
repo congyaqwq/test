@@ -1,0 +1,91 @@
+
+　　1. sudo apt-get install mysql-server
+ 
+　　2. apt-get install mysql-client(需要root权限)
+ 
+　　3.  sudo apt-get install libmysqlclient-dev
+
+
+设置root密码
+1 > use mysql;
+2  
+3 > update user set authentication_string=PASSWORD("这里输入你要改的密码") where User='root'; #更改密码
+4 > update user set plugin="mysql_native_password"; #如果没这一行可能也会报一个错误，因此需要运行这一行
+5  
+6 > flush privileges; #更新所有操作权限
+7 > quit;
+
+
+首先登陆Navicat官网下载Linux版本： https://www.navicat.com.cn/download/navicat-premium
+
+1. 下载 navicat112_premium_cs_x64.tar.gz 文件 
+
+2. 下载后解压tar文件
+
+tar -zxvf  /download/navicat112_premium_cs_x64.tar.gz  
+
+3. 解压后  进入解压后的目录运行命令：
+./start_navicat   
+
+
+
+
+连接上数据库后里面的中文数据是乱码，如果是用的中文版，界面也会是乱码，需要修改字符集，修改方法:
+
+1.打开start_navicat文件，会看到 export LANG="en_US.UTF-8" 将这句话改为 export LANG="zh_CN.UTF-8"
+
+2.查看系统支持的字符集: locale -a 
+
+3.修改字符集: export LANG=zh_CN.utf8 
+
+注意：start_navicat文件和终端locale命令的返回信息这一句：export LANG=zh_CN.utf8一定要保持一致
+
+4.还需要修改数据库字符集。vim打开/etc/mysql/mysql.conf.d路径下的mysqld.cnf文件，
+
+   sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf，
+
+   在[mysqld]段落中添加如下两行：
+
+   character-set-server=utf8
+
+   collation-server=utf8_general_ci
+
+   重启MySQL：/etc/init.d/mysql restart
+
+   输入密码登录：mysql -uroot -p
+
+   然后查看数据库字符集设置：
+
+  linuxidc@linuxidc:~$ mysql -u root -p
+
+   mysql> show variables like 'character_set_%';
+
+   
+
+   查看字符集排序设置：
+
+   mysql> show variables like 'collation_%';
+
+修改root密码
+use mysql
+update user set authentication_string=passworD("test") where user='root';
+
+
+
+
+删除mysql
+sudo apt-get remove mysql-*
+dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
+
+本地navicat连接云服务器mysql
+进入mysql
+use mysql
+update user set host='%' where user='root';
+flush privileges;
+打开服务器
+vim /etc/mysql/mysql/mysql.conf.d/mysqld.cnf
+在bind-address？注释？或改为0.0.0.0
+/etc/init.d/mysql restart
+
+
+

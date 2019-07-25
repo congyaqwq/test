@@ -1,0 +1,5 @@
+普通用户用su - root命令转入超级用户模式，因为插件的安装涉及到更改权限问题。转入root用户后：输入下面4条命令（#号后面是注释）
+
+tar -zx -f install_flash_player_11_linux.x86_64.tar.gz  #解压下载好的压缩包
+
+cp libflashplayer.so  /usr/lib64/mozilla/plugins    #复制插件到火狐浏览器插件文件夹cd /usr/lib64/mozilla/plugins  #定位到插件目录 chmod 755 libflashplayer.so #更改插件权限
